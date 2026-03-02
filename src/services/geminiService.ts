@@ -37,12 +37,11 @@ export const getDailyFortune = async (date: string): Promise<FortuneItem[]> => {
   `;
 
   const response = await ai.models.generateContent({
-    model: "gemini-3-flash-preview",
+    model: "gemini-3.1-pro-preview",
     contents: prompt,
     config: {
-      systemInstruction: "당신은 전문적인 동양 철학가이자 운세 전문가입니다. 사용자의 질문에 대해 최신 정보와 전통적인 운세 해석을 결합하여 답변하세요. 응답은 반드시 지정된 JSON 형식을 따라야 합니다.",
+      systemInstruction: "당신은 전문적인 동양 철학가이자 운세 전문가입니다. 전통적인 운세 해석을 바탕으로 사용자에게 유익한 조언을 제공하세요. 응답은 반드시 지정된 JSON 형식을 따라야 합니다.",
       responseMimeType: "application/json",
-      tools: [{ googleSearch: {} }],
       responseSchema: {
         type: Type.ARRAY,
         items: {
