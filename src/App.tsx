@@ -217,6 +217,22 @@ export default function App() {
                     <p className="text-[15px] text-purple-900/70 leading-relaxed font-medium">
                       {item.description}
                     </p>
+
+                    {/* Year-specific fortunes */}
+                    <div className="pt-4 border-t border-purple-100/50">
+                      <div className="flex items-center gap-2 mb-3">
+                        <div className="w-1 h-3 bg-pink-300 rounded-full" />
+                        <span className="text-[10px] font-black text-purple-300 uppercase tracking-widest">Yearly Tips</span>
+                      </div>
+                      <div className="grid grid-cols-2 gap-2">
+                        {item.yearFortunes.map((yf) => (
+                          <div key={yf.year} className="bg-white/40 p-2 rounded-xl border border-white/60 flex flex-col">
+                            <span className="text-[9px] font-bold text-purple-400 leading-none mb-1">{yf.year}년생</span>
+                            <span className="text-[10px] font-semibold text-purple-800 leading-tight">{yf.tip}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 </motion.div>
               ))}
