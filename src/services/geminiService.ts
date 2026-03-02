@@ -1,6 +1,7 @@
 import { GoogleGenAI, Type } from "@google/genai";
 
-const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+// Use import.meta.env for Vite compatibility, fallback to process.env for server-side
+const GEMINI_API_KEY = import.meta.env.VITE_GEMINI_API_KEY || process.env.GEMINI_API_KEY;
 
 export interface YearFortune {
   year: number;
